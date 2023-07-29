@@ -1,9 +1,5 @@
 function Navigation() {
-  return (
-    <nav>
-
-    </nav>
-  );
+	return <nav></nav>
 }
 
-export default Navigation;
+export default Navigation

@@ -1,13 +1,13 @@
-import './App.css';
-import { Footer, Header } from 'components';
+import { Footer, Header } from 'components'
+import './App.css'
 
 function App() {
-  return (
-    <>
-      <Header/>
-      <Footer/>
-    </>
-  );
+	return (
+		<>
+			<Header/>
+			<Footer/>
+		</>
+	)
 }
 
-export default App;
+export default App

@@ -1,20 +1,20 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle, theme } from 'styles'
+import { IAppProviderProps } from './types'
 
-
-interface IAppProviderProps {
-	children: ReactNode,
-}
 
 const AppProvider: FC<IAppProviderProps> = ({ children }: IAppProviderProps) => {
 	return (
 		<>
-			<GlobalStyle/>
-			<ThemeProvider theme={theme}>
-				{children}
-			</ThemeProvider>
+			<BrowserRouter>
+				<GlobalStyle/>
+				<ThemeProvider theme={theme}>
+					{children}
+				</ThemeProvider>
+			</BrowserRouter>
 		</>
 	)
 }

@@ -2,10 +2,9 @@ import { DefaultTheme } from 'styled-components'
 
 const theme: DefaultTheme = {
 	colors: {
-		powderWhite: '#FFFDF9',
-		persianGreen: '#06B49A',
-		lightBlue: '#AFDBD2',
-		onyx: '#36313D',
+		primaryGreen: '#495E57',
+		primaryYellow: '#FACE14',
+		white: '#FFF',
 	},
 	fonts: ['sans-serif', 'Roboto'],
 	fontSizes: {

@@ -2,6 +2,5 @@
 import { DefaultTheme } from 'styled-components'
 
 export interface ITheme {
-  theme: DefaultTheme
+	theme: DefaultTheme
 }
-

@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { StyledBurger } from './NavigationStyle'
 import { IBurger } from './types'
 
-
 const Burger: FC<IBurger> = ({ isOpen, onClick }: IBurger) => {
 	return (
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment

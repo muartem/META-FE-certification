@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useEffect, MouseEvent, MutableRefObject } from 'react'
 
-export default function useClickOutside(elementRef: MutableRefObject<HTMLDivElement | undefined> | undefined, callback: () => void) {
+export default function useClickOutside(
+	elementRef: MutableRefObject<HTMLDivElement | undefined> | undefined,
+	callback: () => void,
+) {
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent<HTMLDivElement>) => {
 			// @ts-ignore
@@ -11,7 +14,6 @@ export default function useClickOutside(elementRef: MutableRefObject<HTMLDivElem
 
 			return
 		}
-
 
 		// @ts-ignore
 		document.addEventListener('click', handleClickOutside, true)

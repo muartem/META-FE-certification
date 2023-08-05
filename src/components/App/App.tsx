@@ -5,7 +5,6 @@ import AppProvider from './AppProvider'
 import { Footer, Header } from 'components'
 import { Container } from './AppStyle'
 
-
 const App: FC = () => {
 	return (
 		<AppProvider>
@@ -13,7 +12,11 @@ const App: FC = () => {
 			<Container>
 				<Routes>
 					{routes.map((route: IRouter) => (
-						<Route key={route.title} path={route.path} element={route.element}/>
+						<Route
+							key={route.title}
+							path={route.path}
+							element={route.element}
+						/>
 					))}
 				</Routes>
 			</Container>

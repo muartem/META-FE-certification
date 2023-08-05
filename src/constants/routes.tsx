@@ -1,10 +1,9 @@
 import { ReactElement } from 'react'
 
-
 export interface IRouter {
-	title: string;
-	path: string;
-	element: ReactElement;
+	title: string
+	path: string
+	element: ReactElement
 }
 
 const router: IRouter[] = [

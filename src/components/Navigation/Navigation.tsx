@@ -19,7 +19,6 @@ const Navigation: FC = () => {
 		setBurgerOpen(false)
 	})
 
-
 	const toggleBurger = () => {
 		setBurgerOpen(state => !state)
 	}

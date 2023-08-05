@@ -1,5 +1,4 @@
 export interface IBurger {
-  isOpen: boolean,
+  isOpen: boolean
   onClick: () => void
 }
-

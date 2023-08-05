@@ -5,15 +5,14 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from 'styles'
 import { IAppProviderProps } from './types'
 
-
-const AppProvider: FC<IAppProviderProps> = ({ children }: IAppProviderProps) => {
+const AppProvider: FC<IAppProviderProps> = ({
+	children,
+}: IAppProviderProps) => {
 	return (
 		<>
 			<BrowserRouter>
 				<GlobalStyle/>
-				<ThemeProvider theme={theme}>
-					{children}
-				</ThemeProvider>
+				<ThemeProvider theme={theme}>{children}</ThemeProvider>
 			</BrowserRouter>
 		</>
 	)

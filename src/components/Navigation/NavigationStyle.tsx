@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import is from 'styled-is'
 import { getColor } from 'utils/styleHelpers'
 
-
 export const Nav = styled.nav`
   position: relative;
   display: flex;
@@ -28,7 +27,8 @@ export const Ul = styled.ul`
     flex-direction: column;
     padding: 16px;
 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
     & a {
       padding: 0 40px 2px;
@@ -37,7 +37,7 @@ export const Ul = styled.ul`
     ${is('$isOpen')`
       display: flex;
     `};
-  };
+  }
 `
 
 export const Li = styled.li`
@@ -84,7 +84,6 @@ export const StyledBurger = styled.div`
       background-color: ${getColor('primaryYellow')};
     }
   }
-
 
   ${is('$isOpen')`
     & > div:first-child {

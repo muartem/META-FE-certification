@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { StyledBurger } from './NavigationStyle'
+import { StyledBurger } from './Navigation.style'
 import { IBurger } from './types'
 
 const Burger: FC<IBurger> = ({ isOpen, onClick }: IBurger) => {

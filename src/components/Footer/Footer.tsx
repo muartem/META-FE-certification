@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { contacts, IContacts, ISocials, socials } from 'constants/footer'
 import routes, { IRouter } from 'constants/routes'
-import { Container, Logo, StyledFooter } from './FooterStyle'
+import { Container, Logo, StyledFooter } from './Footer.style'
 import logo from 'assets/Asset 20@4x.png'
 
 const Footer: FC = () => {

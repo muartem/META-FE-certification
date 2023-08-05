@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container as AppContainer } from 'components/App/AppStyle'
+import { Container as AppContainer } from 'components/App/App.style'
 import { getColor } from 'utils/styleHelpers'
 
 export const StyledHeader = styled.header`
@@ -7,6 +7,7 @@ export const StyledHeader = styled.header`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
 
   display: flex;
   align-items: center;

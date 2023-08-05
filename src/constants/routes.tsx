@@ -1,4 +1,5 @@
 import { ReactElement } from 'react'
+import Blanc from 'components/Blanc'
 
 export interface IRouter {
 	title: string
@@ -9,22 +10,22 @@ export interface IRouter {
 const router: IRouter[] = [
 	{
 		path: '/',
-		element: <span>Home</span>,
+		element: <Blanc/>,
 		title: 'Home',
 	},
 	{
 		path: '/menu',
-		element: <span>Menu</span>,
+		element: <Blanc/>,
 		title: 'Menu',
 	},
 	{
 		path: '/book',
-		element: <span>Book</span>,
+		element: <Blanc/>,
 		title: 'Book',
 	},
 	{
 		path: '/order',
-		element: <span>Order</span>,
+		element: <Blanc/>,
 		title: 'Order',
 	},
 ]

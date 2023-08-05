@@ -4,7 +4,7 @@ import routes, { IRouter } from 'constants/routes'
 import { Link, useLocation } from 'react-router-dom'
 import useClickOutside from '../../hooks/useClickOutside'
 import Burger from './Burger'
-import { Li, Ul, Nav } from './NavigationStyle'
+import { Li, Ul, Nav } from './Navigation.style'
 
 const Navigation: FC = () => {
 	const { pathname } = useLocation()

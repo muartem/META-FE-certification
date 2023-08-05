@@ -3,7 +3,7 @@ import routes, { IRouter } from 'constants/routes'
 import { Route, Routes } from 'react-router-dom'
 import AppProvider from './AppProvider'
 import { Footer, Header } from 'components'
-import { Container } from './AppStyle'
+import { Container } from './App.style'
 
 const App: FC = () => {
 	return (

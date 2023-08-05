@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container as AppContainer } from 'components/App/AppStyle'
+import { Container as AppContainer } from 'components/App/App.style'
 import { getColor } from '../../utils/styleHelpers'
 
 export const StyledFooter = styled.footer`

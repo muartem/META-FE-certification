@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Container as AppContainer } from 'components/App/AppStyle'
+import { getColor } from 'utils/styleHelpers'
 
 export const StyledHeader = styled.header`
   position: sticky;
@@ -10,8 +11,9 @@ export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: ${getColor('white')};
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `
 
 export const Container = styled(AppContainer)`

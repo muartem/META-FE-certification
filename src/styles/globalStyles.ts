@@ -1,22 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+  *,
   *::before,
   *::after {
-    box-sizing: border-box;
-  }
-
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  figure,
-  blockquote,
-  dl,
-  dd {
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
   }
 
   ul,

@@ -10,22 +10,22 @@ export interface IRouter {
 const router: IRouter[] = [
 	{
 		path: '/',
-		element: <div>Home</div>,
+		element: <span>Home</span>,
 		title: 'Home',
 	},
 	{
 		path: '/menu',
-		element: <div>Menu</div>,
+		element: <span>Menu</span>,
 		title: 'Menu',
 	},
 	{
 		path: '/book',
-		element: <div>Book</div>,
+		element: <span>Book</span>,
 		title: 'Book',
 	},
 	{
 		path: '/order',
-		element: <div>Order</div>,
+		element: <span>Order</span>,
 		title: 'Order',
 	},
 ]

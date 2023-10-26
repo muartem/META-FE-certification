@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
 import Blanc from 'components/Blanc'
+import Booking from 'components/Booking'
 
 export interface IRouter {
 	title: string
@@ -20,7 +21,7 @@ const router: IRouter[] = [
 	},
 	{
 		path: '/book',
-		element: <Blanc/>,
+		element: <Booking/>,
 		title: 'Book',
 	},
 	{

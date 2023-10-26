@@ -9,7 +9,9 @@ const AppProvider: FC<IAppProviderProps> = ({ children }: IAppProviderProps) => 
 	<>
 		<BrowserRouter>
 			<GlobalStyle/>
-			<ThemeProvider theme={theme}>{children}</ThemeProvider>
+			<ThemeProvider theme={theme}>
+				{children}
+			</ThemeProvider>
 		</BrowserRouter>
 	</>
 )

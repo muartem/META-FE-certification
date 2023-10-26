@@ -73,6 +73,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   }
+
+  #root {
+    min-width: 100 dvw;
+    min-height: 100 dvh;
+  }
 `
 
 export default GlobalStyle

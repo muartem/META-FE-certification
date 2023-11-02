@@ -1,6 +1,11 @@
 import { DefaultTheme } from 'styled-components'
 
 const theme: DefaultTheme = {
+	palette: {
+		primary: {
+			main: '#495E57',
+		},
+	},
 	colors: {
 		primaryGreen: '#495E57',
 		primaryYellow: '#FACE14',

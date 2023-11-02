@@ -78,6 +78,15 @@ const GlobalStyle = createGlobalStyle`
     min-width: 100 dvw;
     min-height: 100 dvh;
   }
+
+
+  label.MuiInputLabel-root.Mui-focused {
+    color: #495E57 !important;
+  }
+
+  div.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
+    border-color: #495E57 !important;
+  }
 `
 
 export default GlobalStyle

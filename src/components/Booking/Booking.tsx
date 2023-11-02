@@ -1,14 +1,11 @@
-import { yupResolver } from '@hookform/resolvers/yup'
-import { TextField, Select, MenuItem, FormHelperText, FormControl, Snackbar } from '@mui/material'
-import InputLabel from '@mui/material/InputLabel'
-import Grid from '@mui/material/Grid'
-import moment from 'moment'
 import { FC, useEffect, useState } from 'react'
-import * as React from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { TextField, Select, MenuItem, FormHelperText, FormControl, Snackbar, InputLabel, Grid } from '@mui/material'
+import moment from 'moment'
 import { FormProvider, useForm, Controller, useWatch } from 'react-hook-form'
-import { fetchAPI, submitAPI } from '../../services/api'
+import { fetchAPI, submitAPI } from 'services/api'
 import Alert from '../Alert'
-import { BookingStyle, StyledButton } from './Booking.style'
+import { BookingStyle, StyledButton, StyledInput } from './Booking.style'
 import { defaultValues, validationSchema } from './schema'
 import { FormInput } from './types'
 
@@ -90,15 +87,13 @@ const Booking: FC = () => {
 								name="date"
 								control={control}
 								render={({ field, fieldState }) => (
-									<TextField
+									<StyledInput
 										label="Date"
 										type="date"
 										{...field}
 										fullWidth
 										error={fieldState.invalid}
 										helperText={fieldState.error?.message}
-										placeholder="as"
-										style={{ color: '#ffffff00!important' }}
 									/>
 								)}
 							/>

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import TextField from '@mui/material/TextField'
 import { Button } from '@mui/material'
 import { getColor } from 'utils/styleHelpers'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { match } from 'styled-is'
+import { isNot, match } from 'styled-is'
 
 
 export const BookingStyle = styled.main`
@@ -11,6 +12,14 @@ export const BookingStyle = styled.main`
   background-color: ${getColor('white')};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
   0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`
+
+export const StyledInput = styled(TextField)`
+  ${isNot('value')`
+    & input:not(:focus) {
+      color: #ffffff00;
+    }
+  `};
 `
 
 export const StyledButton = styled(Button)`

@@ -21,4 +21,10 @@ export const fetchAPI = (date: Date) => {
 	return result
 }
 
-export const submitAPI = (formData: FormInput) => true
+export const submitAPI = (formData: FormInput) => {
+	if (Date.now() % 3 === 0) {
+		throw new Error('Something went wrong. Try again.')
+	}
+
+	return formData
+}

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Button } from '@mui/material'
 import { getColor } from 'utils/styleHelpers'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { match } from 'styled-is'
 
 
@@ -22,7 +24,7 @@ export const StyledButton = styled(Button)`
 
   ${match('variant', 'outlined')`
     background-color: ${getColor('white')}!important;
-    border: 1,5px solid ${getColor('primaryGreen')}!important;
+    border: 1.5px solid ${getColor('primaryGreen')}!important;
     color: ${getColor('primaryGreen')}!important;
   `};
 `

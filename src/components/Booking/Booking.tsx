@@ -1,19 +1,26 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { TextField, Select, MenuItem, FormHelperText } from '@mui/material'
+import { TextField, Select, MenuItem, FormHelperText, FormControl, Snackbar } from '@mui/material'
+import InputLabel from '@mui/material/InputLabel'
 import Grid from '@mui/material/Grid'
 import moment from 'moment'
 import { FC, useEffect, useState } from 'react'
 import * as React from 'react'
 import { FormProvider, useForm, Controller, useWatch } from 'react-hook-form'
 import { fetchAPI, submitAPI } from '../../services/api'
+import Alert from '../Alert'
 import { BookingStyle, StyledButton } from './Booking.style'
 import { defaultValues, validationSchema } from './schema'
+import { FormInput } from './types'
 
 
 const Booking: FC = () => {
-	const [timeSlots, setTimeSlots] = useState(null)
+	const [timeSlots, setTimeSlots] = useState<string[]>([])
+	const [open, setOpen] = useState<{ data?: FormInput, error?: string }>({})
+
 	const form = useForm({
-		resolver: yupResolver(validationSchema),
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		resolver: yupResolver<FormInput>(validationSchema),
 		defaultValues,
 	})
 
@@ -23,32 +30,41 @@ const Booking: FC = () => {
 
 	const selectedDate = useWatch({ control, name: 'date' })
 
-	const onSubmit = async (data) => {
+	const onSubmit = async (data: FormInput) => {
 		try {
 			const res = await submitAPI(data)
-
-			console.log(res)
+			setOpen({ data: res })
 			reset()
-		} catch (e) {
-			console.error(e)
-		} finally {
-			console.log(data)
+
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		} catch (e: any) {
+			setOpen({ error: e.message })
 		}
 	}
 
-	const getTimeSlots = async (date: string) => {
-		console.log(date)
+	const getTimeSlots = (date: Date | string) => {
 		try {
-			const res = await fetchAPI(new Date(date))
+			const res = fetchAPI(new Date(date))
 			setTimeSlots(res)
-		} catch (e) {
-			console.error(e)
+
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		} catch (e: any) {
+			setOpen({ error: e.message })
 		}
 	}
 
 	useEffect(() => {
 		getTimeSlots(selectedDate)
 	}, [selectedDate])
+
+
+	const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+		if (reason === 'clickaway') {
+			return
+		}
+
+		setOpen({})
+	}
 
 	return (
 		<BookingStyle>
@@ -80,7 +96,10 @@ const Booking: FC = () => {
 										{...field}
 										fullWidth
 										error={fieldState.invalid}
-										helperText={fieldState.error?.message} placeholder=""/>
+										helperText={fieldState.error?.message}
+										placeholder="as"
+										style={{ color: '#ffffff00!important' }}
+									/>
 								)}
 							/>
 						</Grid>
@@ -89,19 +108,20 @@ const Booking: FC = () => {
 								name="time"
 								control={control}
 								render={({ field, fieldState }) => (
-									<>
+									<FormControl fullWidth disabled={!timeSlots?.length}>
+										<InputLabel id="select-time">Time</InputLabel>
 										<Select
 											{...field}
 											label="Time"
+											labelId="select-time"
 											error={fieldState.invalid}
-											disabled={!timeSlots}
 											fullWidth
 										>
 											{timeSlots?.map(slot => (
 												<MenuItem value="slot" key={slot}>{moment(slot, 'HH:mm').format('h:mm A')}</MenuItem>))}
 										</Select>
 										{fieldState.invalid && <FormHelperText error>{fieldState.error?.message}</FormHelperText>}
-									</>
+									</FormControl>
 								)}
 							/>
 						</Grid>
@@ -135,7 +155,7 @@ const Booking: FC = () => {
 							/>
 						</Grid>
 						<Grid display={'flex'} item xs={12} justifyContent={'end'} gap={2}>
-							<StyledButton type="reset" onClick={reset} variant="outlined">
+							<StyledButton type="reset" onClick={() => reset()} variant="outlined">
 								Clear
 							</StyledButton>
 							<StyledButton type="submit" variant="contained">
@@ -145,6 +165,16 @@ const Booking: FC = () => {
 					</Grid>
 				</form>
 			</FormProvider>
+			<Snackbar open={!!open?.data} autoHideDuration={4000} onClose={handleClose}>
+				<Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+					{`${open?.data?.name}, thank you for reservation! `}
+				</Alert>
+			</Snackbar>
+			<Snackbar open={!!open?.error} autoHideDuration={4000} onClose={handleClose}>
+				<Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+					{open?.error}
+				</Alert>
+			</Snackbar>
 		</BookingStyle>
 	)
 }

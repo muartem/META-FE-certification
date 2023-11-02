@@ -1,6 +1,6 @@
 export type FormInput = {
   name: string;
-  date: string;
+  date: Date | string;
   time: string;
   people: number;
   occasion: string;

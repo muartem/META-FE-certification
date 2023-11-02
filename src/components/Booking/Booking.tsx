@@ -84,6 +84,21 @@ const Booking: FC = () => {
 						</Grid>
 						<Grid item xs={12}>
 							<Controller
+								name="phone"
+								control={control}
+								render={({ field, fieldState }) => (
+									<TextField
+										type="tel"
+										label="Phone"
+										{...field}
+										fullWidth
+										error={fieldState.invalid}
+										helperText={fieldState.error?.message}/>
+								)}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<Controller
 								name="date"
 								control={control}
 								render={({ field, fieldState }) => (
